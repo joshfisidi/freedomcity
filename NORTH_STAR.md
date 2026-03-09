@@ -1,26 +1,37 @@
-# FreedomCity North Star
+# Freedom City North Star
+
+## Product North-Star Sentence
+**Freedom City is the operational nerve center for the charity: a secure, role-aware, mobile-first control plane that unifies donations, volunteers, programs, compliance, and board reporting into one auditable system of record.**
 
 ## Mission
-Build the most reliable, mobile-first operating surface for community organizations to run donations, programs, volunteers, compliance, and board workflows with low friction.
+Build Freedom City as the charity’s mission-critical internal operating system (not a brochure site, not a generic admin panel).
 
 ## Non-Negotiables (Upgrade Gate)
-1. **Build integrity:** `npm run lint` and `npm run build` must pass.
-2. **Auth safety:** protected routes and redirect safety must remain intact.
-3. **Operational clarity:** route surface, dependencies, and core architecture must stay documented.
-4. **Determinism:** every hourly run produces a timestamped audit with reproducible command evidence.
-5. **Public accountability:** successful checks are committed and pushed to `main` on the public GitHub repo.
+1. **Build integrity**: `npm run lint` and `npm run build` pass.
+2. **Security architecture**: authentication + authorization split is preserved (middleware optimistic gate + server-side enforcement + DAL + RLS).
+3. **Org-role model**: role-aware access patterns remain explicit (`super_admin`, executive, finance, development, volunteer, program, board, staff).
+4. **Auditability**: each run regenerates timestamped audit evidence and north-star check artifacts.
+5. **Operational focus**: roadmap remains centered on queues, approvals, documents, and board readiness — not vanity analytics.
+
+## Operating Lanes
+- Executive lane
+- Development/fundraising lane
+- Volunteer operations lane
+- Program delivery lane
+- Compliance/finance lane
+- Board lane
+
+## Phase Roadmap (Canonical)
+1. Replace mock-data views with DB-backed reads (org bootstrap, memberships, donors, volunteers, tasks, approvals, activity feed).
+2. Implement hard authorization (membership roles, DAL checks, RLS, production-safe demo behavior).
+3. Ship core workflows (receipts, shift scheduling/check-in, board packets, deadlines, notifications).
+4. Add board-ready reporting and summaries.
+5. Differentiate with outcome intelligence and cross-lane risk scoring.
 
 ## Hourly Protocol
-Every hour:
-1. Remove previous `audit/full-scope-*` folder(s).
-2. Run a fresh full-scope audit (20 markdown files).
-3. Run North Star checks (lint/build/auth-route grep assertions).
-4. If checks pass: commit and push.
-5. If checks fail: write failure report to `audit/NORTHSTAR_BLOCKED.md` and do not push.
-
-## Success Criteria
-- Latest commit on GitHub contains:
-  - fresh `audit/full-scope-YYYY-MM-DD-HHMM`
-  - `audit/NORTHSTAR_CHECK.md`
-  - any updated automation files
-- Branch remains green (buildable) and auditable by inspection.
+Every hour automation must:
+1. Load this file and `docs/NORTH_STAR_RESEARCH.md`.
+2. Delete old `audit/full-scope-*` folders.
+3. Regenerate full-scope audit artifacts (20 markdown files).
+4. Run north-star checks and write `audit/NORTHSTAR_CHECK.md`.
+5. Push to GitHub only if all gates pass.

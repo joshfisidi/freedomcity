@@ -135,6 +135,20 @@ CHECK_FILE="audit/NORTHSTAR_CHECK.md"
 
 PASS=1
 
+if [[ -f NORTH_STAR.md ]] && rg -n "operational nerve center|mobile-first control plane|auditable system of record" NORTH_STAR.md >> "$CHECK_FILE" 2>&1; then
+  echo "- ✅ north star file present and core mission signals found" >> "$CHECK_FILE"
+else
+  echo "- ❌ north star file missing or core mission signals not found" >> "$CHECK_FILE"
+  PASS=0
+fi
+
+if [[ -f docs/NORTH_STAR_RESEARCH.md ]]; then
+  echo "- ✅ research north star source present (docs/NORTH_STAR_RESEARCH.md)" >> "$CHECK_FILE"
+else
+  echo "- ❌ research north star source missing" >> "$CHECK_FILE"
+  PASS=0
+fi
+
 if npm run lint >> "$CHECK_FILE" 2>&1; then
   echo "- ✅ lint passed" >> "$CHECK_FILE"
 else
