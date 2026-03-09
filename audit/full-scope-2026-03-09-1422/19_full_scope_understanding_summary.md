@@ -1,6 +1,6 @@
 # Full Scope Understanding Summary
 
-Generated: Mon  9 Mar 2026 13:22:21 EDT
+Generated: Mon  9 Mar 2026 14:22:20 EDT
 
 - Next.js App Router dashboard for nonprofit operations.
 - Supabase-ready auth with middleware protection and safe redirect helper.
