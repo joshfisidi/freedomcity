@@ -18,10 +18,10 @@ src/lib/supabase/middleware.ts:47:    url.searchParams.set("redirectTo", getSafe
 src/components/app-shell.tsx:10:import { hasSupabaseEnv } from "@/lib/supabase/env";
 src/components/app-shell.tsx:48:                  <Badge>{hasSupabaseEnv() ? "Live auth" : "Demo mode"}</Badge>
 src/components/app-shell.tsx:117:                {hasSupabaseEnv() ? (
-src/app/login/page.tsx:3:import { getSafeRedirectPath } from "@/lib/redirect";
-src/app/login/page.tsx:20:  const redirectTo = getSafeRedirectPath(redirectParam);
 src/components/login-form.tsx:9:import { hasSupabaseEnv } from "@/lib/supabase/env";
 src/components/login-form.tsx:19:  const isSupabaseEnabled = hasSupabaseEnv();
+src/app/login/page.tsx:3:import { getSafeRedirectPath } from "@/lib/redirect";
+src/app/login/page.tsx:20:  const redirectTo = getSafeRedirectPath(redirectParam);
 src/app/page.tsx:9:import { getSafeRedirectPath } from "@/lib/redirect";
 src/app/page.tsx:23:  const redirectTo = getSafeRedirectPath(requestedRedirect);
 src/app/login/actions.ts:5:import { getSafeRedirectPath } from "@/lib/redirect";
