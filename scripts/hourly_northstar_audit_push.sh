@@ -196,6 +196,6 @@ if git diff --cached --quiet; then
 fi
 
 git commit -m "chore(audit): hourly north-star audit ${STAMP}"
-git push origin main
+git push origin HEAD:agent
 
-echo "Hourly north-star audit + push complete: ${STAMP}"
+echo "Hourly north-star audit + push complete to branch agent: ${STAMP}"
