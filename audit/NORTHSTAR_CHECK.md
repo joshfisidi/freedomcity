@@ -1,6 +1,6 @@
 # North Star Check
 
-Timestamp: Tue 10 Mar 2026 14:22:18 EDT
+Timestamp: Tue 10 Mar 2026 15:22:18 EDT
 
 ## Gate Results
 
@@ -59,9 +59,9 @@ Route (app)                                 Size  First Load JS
 ƒ  (Dynamic)  server-rendered on demand
 
 - ✅ build passed
+src/lib/redirect.ts:3:export function getSafeRedirectPath(value?: string | null) {
 src/lib/supabase/middleware.ts:4:import { getSafeRedirectPath } from "@/lib/redirect";
 src/lib/supabase/middleware.ts:7:const protectedPrefixes = ["/app", "/programs", "/board", "/team", "/settings"];
 src/lib/supabase/middleware.ts:10:  return protectedPrefixes.some((prefix) => pathname.startsWith(prefix));
 src/lib/supabase/middleware.ts:47:    url.searchParams.set("redirectTo", getSafeRedirectPath(request.nextUrl.pathname));
-src/lib/redirect.ts:3:export function getSafeRedirectPath(value?: string | null) {
 - ✅ auth/redirect safety signals present
