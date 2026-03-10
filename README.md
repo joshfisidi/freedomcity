@@ -31,6 +31,26 @@ npm run lint
 npm run build
 ```
 
+## Screenshots
+
+### Home
+![Freedom City Home](docs/screenshots/home.png)
+
+### Login
+![Freedom City Login](docs/screenshots/login.png)
+
+### App Dashboard
+![Freedom City App Dashboard](docs/screenshots/app-dashboard.png)
+
+### Board
+![Freedom City Board](docs/screenshots/board.png)
+
+To refresh screenshots automatically:
+
+```bash
+./scripts/update_readme_screenshots.sh
+```
+
 ## Notes
 
 - The product shape borrows nonprofit ops ideas from the Houdini audit, especially checklist-first onboarding and dashboard density.
