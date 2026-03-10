@@ -9,7 +9,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint . --max-warnings=0",
-    "typecheck": "next typegen && tsc --noEmit"
+    "typecheck": "next typegen && tsc --noEmit",
+    "screenshots:update": "./scripts/update_readme_screenshots.sh"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.1.2",
