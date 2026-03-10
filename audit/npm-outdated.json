@@ -1,0 +1,51 @@
+{
+  "@supabase/ssr": {
+    "current": "0.5.2",
+    "wanted": "0.5.2",
+    "latest": "0.9.0",
+    "dependent": "freedomcity",
+    "location": "/Users/josh/.openclaw/workspace/projects/freedomcity/node_modules/@supabase/ssr"
+  },
+  "@supabase/supabase-js": {
+    "current": "2.98.0",
+    "wanted": "2.99.0",
+    "latest": "2.99.0",
+    "dependent": "freedomcity",
+    "location": "/Users/josh/.openclaw/workspace/projects/freedomcity/node_modules/@supabase/supabase-js"
+  },
+  "@types/node": {
+    "current": "22.19.15",
+    "wanted": "22.19.15",
+    "latest": "25.4.0",
+    "dependent": "freedomcity",
+    "location": "/Users/josh/.openclaw/workspace/projects/freedomcity/node_modules/@types/node"
+  },
+  "eslint": {
+    "current": "9.39.4",
+    "wanted": "9.39.4",
+    "latest": "10.0.3",
+    "dependent": "freedomcity",
+    "location": "/Users/josh/.openclaw/workspace/projects/freedomcity/node_modules/eslint"
+  },
+  "eslint-config-next": {
+    "current": "15.5.12",
+    "wanted": "15.5.12",
+    "latest": "16.1.6",
+    "dependent": "freedomcity",
+    "location": "/Users/josh/.openclaw/workspace/projects/freedomcity/node_modules/eslint-config-next"
+  },
+  "lucide-react": {
+    "current": "0.511.0",
+    "wanted": "0.511.0",
+    "latest": "0.577.0",
+    "dependent": "freedomcity",
+    "location": "/Users/josh/.openclaw/workspace/projects/freedomcity/node_modules/lucide-react"
+  },
+  "next": {
+    "current": "15.5.12",
+    "wanted": "15.5.12",
+    "latest": "16.1.6",
+    "dependent": "freedomcity",
+    "location": "/Users/josh/.openclaw/workspace/projects/freedomcity/node_modules/next"
+  }
+}
