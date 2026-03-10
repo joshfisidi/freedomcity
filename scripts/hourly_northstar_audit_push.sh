@@ -135,6 +135,19 @@ CHECK_FILE="audit/NORTHSTAR_CHECK.md"
 
 PASS=1
 
+# Non-blocking knowledge scan (requested): always check before upgrade gates
+if [[ -d knowledge ]]; then
+  KNOWLEDGE_FILES_COUNT="$(find knowledge -type f | wc -l | tr -d ' ')"
+  echo "- ℹ️ knowledge folder check: found ${KNOWLEDGE_FILES_COUNT} file(s)" >> "$CHECK_FILE"
+  if [[ "$KNOWLEDGE_FILES_COUNT" -gt 0 ]]; then
+    echo '```' >> "$CHECK_FILE"
+    find knowledge -type f | sort >> "$CHECK_FILE"
+    echo '```' >> "$CHECK_FILE"
+  fi
+else
+  echo "- ℹ️ knowledge folder check: knowledge/ not present (non-blocking)" >> "$CHECK_FILE"
+fi
+
 if [[ -f NORTH_STAR.md ]] && rg -n "operational nerve center|mobile-first control plane|auditable system of record" NORTH_STAR.md >> "$CHECK_FILE" 2>&1; then
   echo "- ✅ north star file present and core mission signals found" >> "$CHECK_FILE"
 else
