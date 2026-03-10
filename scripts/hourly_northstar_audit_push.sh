@@ -135,17 +135,72 @@ CHECK_FILE="audit/NORTHSTAR_CHECK.md"
 
 PASS=1
 
+UPGRADE_LOG="audit/UPGRADE_LOG.md"
+{
+  echo "# Upgrade Log";
+  echo;
+  echo "Timestamp: $(date)";
+  echo;
+  echo "## Knowledge + Programmatic Upgrade Stage";
+  echo;
+} > "$UPGRADE_LOG"
+
 # Non-blocking knowledge scan (requested): always check before upgrade gates
 if [[ -d knowledge ]]; then
   KNOWLEDGE_FILES_COUNT="$(find knowledge -type f | wc -l | tr -d ' ')"
   echo "- ℹ️ knowledge folder check: found ${KNOWLEDGE_FILES_COUNT} file(s)" >> "$CHECK_FILE"
+  echo "- knowledge/: found ${KNOWLEDGE_FILES_COUNT} file(s)" >> "$UPGRADE_LOG"
   if [[ "$KNOWLEDGE_FILES_COUNT" -gt 0 ]]; then
     echo '```' >> "$CHECK_FILE"
     find knowledge -type f | sort >> "$CHECK_FILE"
     echo '```' >> "$CHECK_FILE"
+    echo '```' >> "$UPGRADE_LOG"
+    find knowledge -type f | sort >> "$UPGRADE_LOG"
+    echo '```' >> "$UPGRADE_LOG"
   fi
 else
   echo "- ℹ️ knowledge folder check: knowledge/ not present (non-blocking)" >> "$CHECK_FILE"
+  echo "- knowledge/: not present" >> "$UPGRADE_LOG"
+fi
+
+# Programmatic upgrade pass (safe defaults)
+echo "- running npm outdated snapshot" >> "$UPGRADE_LOG"
+if npm outdated --json > audit/npm-outdated.json 2>/dev/null; then
+  echo "- npm outdated: no outdated packages reported" >> "$UPGRADE_LOG"
+else
+  # npm returns non-zero when outdated packages exist; keep JSON output
+  if [[ -s audit/npm-outdated.json ]]; then
+    echo "- npm outdated: found candidates (captured in audit/npm-outdated.json)" >> "$UPGRADE_LOG"
+  else
+    echo "- npm outdated: unable to capture outdated report" >> "$UPGRADE_LOG"
+  fi
+fi
+
+echo "- applying npm update" >> "$UPGRADE_LOG"
+if npm update >> "$UPGRADE_LOG" 2>&1; then
+  echo "- ✅ npm update applied" >> "$UPGRADE_LOG"
+else
+  echo "- ⚠️ npm update returned non-zero (continuing to validation gates)" >> "$UPGRADE_LOG"
+fi
+
+# Optional knowledge-driven upgrade commands (line format: RUN: <command>)
+if [[ -f knowledge/upgrade-actions.txt ]]; then
+  echo "- found knowledge/upgrade-actions.txt, executing RUN directives" >> "$UPGRADE_LOG"
+  while IFS= read -r line; do
+    [[ -z "$line" ]] && continue
+    [[ "$line" =~ ^# ]] && continue
+    if [[ "$line" =~ ^RUN:[[:space:]]*(.+)$ ]]; then
+      cmd="${BASH_REMATCH[1]}"
+      echo "  - RUN: $cmd" >> "$UPGRADE_LOG"
+      if bash -lc "$cmd" >> "$UPGRADE_LOG" 2>&1; then
+        echo "    ✅ success" >> "$UPGRADE_LOG"
+      else
+        echo "    ⚠️ failed (non-blocking)" >> "$UPGRADE_LOG"
+      fi
+    fi
+  done < knowledge/upgrade-actions.txt
+else
+  echo "- no knowledge/upgrade-actions.txt found; using safe default upgrade only" >> "$UPGRADE_LOG"
 fi
 
 if [[ -f NORTH_STAR.md ]] && rg -n "operational nerve center|mobile-first control plane|auditable system of record" NORTH_STAR.md >> "$CHECK_FILE" 2>&1; then
@@ -202,6 +257,7 @@ rm -f audit/NORTHSTAR_BLOCKED.md
 
 # 5) Commit + push
 
+git add NORTH_STAR.md audit scripts/hourly_northstar_audit_push.sh knowledge/upgrade-actions.txt 2>/dev/null || true
 git add NORTH_STAR.md audit scripts/hourly_northstar_audit_push.sh
 if git diff --cached --quiet; then
   echo "No changes to commit."
