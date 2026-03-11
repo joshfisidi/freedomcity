@@ -2,7 +2,6 @@
 
 ## src
 ```
-src/.DS_Store
 src/app/(dashboard)/app/page.tsx
 src/app/(dashboard)/board/page.tsx
 src/app/(dashboard)/layout.tsx
