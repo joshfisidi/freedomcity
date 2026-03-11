@@ -10,6 +10,15 @@ src/lib/supabase/middleware.ts:48:    return NextResponse.redirect(url);
 src/components/login-form.tsx:14:  redirectTo: string;
 src/components/login-form.tsx:17:export function LoginForm({ redirectTo }: LoginFormProps) {
 src/components/login-form.tsx:23:      <input name="redirectTo" type="hidden" value={redirectTo} />
+src/app/page.tsx:9:import { getSafeRedirectPath } from "@/lib/redirect";
+src/app/page.tsx:15:  searchParams: Promise<{
+src/app/page.tsx:16:    redirectTo?: string | string[];
+src/app/page.tsx:20:export default async function HomePage({ searchParams }: HomePageProps) {
+src/app/page.tsx:21:  const params = await searchParams;
+src/app/page.tsx:22:  const requestedRedirect = typeof params.redirectTo === "string" ? params.redirectTo : null;
+src/app/page.tsx:23:  const redirectTo = getSafeRedirectPath(requestedRedirect);
+src/app/page.tsx:32:      redirect(redirectTo);
+src/app/page.tsx:118:            <LoginForm redirectTo={redirectTo} />
 src/app/login/page.tsx:3:import { getSafeRedirectPath } from "@/lib/redirect";
 src/app/login/page.tsx:6:  searchParams: Promise<{
 src/app/login/page.tsx:7:    redirectTo?: string | string[];
@@ -20,19 +29,10 @@ src/app/login/page.tsx:16:      ? params.redirectTo
 src/app/login/page.tsx:20:  const redirectTo = getSafeRedirectPath(redirectParam);
 src/app/login/page.tsx:23:    redirect(`/?redirectTo=${encodeURIComponent(redirectTo)}`);
 src/app/login/page.tsx:26:  redirect("/");
-src/app/page.tsx:9:import { getSafeRedirectPath } from "@/lib/redirect";
-src/app/page.tsx:15:  searchParams: Promise<{
-src/app/page.tsx:16:    redirectTo?: string | string[];
-src/app/page.tsx:20:export default async function HomePage({ searchParams }: HomePageProps) {
-src/app/page.tsx:21:  const params = await searchParams;
-src/app/page.tsx:22:  const requestedRedirect = typeof params.redirectTo === "string" ? params.redirectTo : null;
-src/app/page.tsx:23:  const redirectTo = getSafeRedirectPath(requestedRedirect);
-src/app/page.tsx:32:      redirect(redirectTo);
-src/app/page.tsx:118:            <LoginForm redirectTo={redirectTo} />
+src/app/(dashboard)/layout.tsx:17:      redirect("/login");
 src/app/login/actions.ts:5:import { getSafeRedirectPath } from "@/lib/redirect";
 src/app/login/actions.ts:22:  const redirectTo = getSafeRedirectPath(typeof formData.get("redirectTo") === "string" ? String(formData.get("redirectTo")) : null);
 src/app/login/actions.ts:48:  redirect(redirectTo);
-src/app/(dashboard)/layout.tsx:17:      redirect("/login");
 src/app/auth/signout/route.ts:12:  return NextResponse.redirect(new URL("/login", request.url));
 ```
 
