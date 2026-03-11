@@ -32,8 +32,8 @@ src/app/page.tsx:22:  const requestedRedirect = typeof params.redirectTo === "st
 src/app/page.tsx:23:  const redirectTo = getSafeRedirectPath(requestedRedirect);
 src/app/page.tsx:32:      redirect(redirectTo);
 src/app/page.tsx:118:            <LoginForm redirectTo={redirectTo} />
-src/app/(dashboard)/layout.tsx:17:      redirect("/login");
 src/app/auth/signout/route.ts:12:  return NextResponse.redirect(new URL("/login", request.url));
+src/app/(dashboard)/layout.tsx:17:      redirect("/login");
 ```
 
 ```ts
