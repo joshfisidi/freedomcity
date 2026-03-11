@@ -20,6 +20,7 @@ src/app/login/page.tsx:16:      ? params.redirectTo
 src/app/login/page.tsx:20:  const redirectTo = getSafeRedirectPath(redirectParam);
 src/app/login/page.tsx:23:    redirect(`/?redirectTo=${encodeURIComponent(redirectTo)}`);
 src/app/login/page.tsx:26:  redirect("/");
+src/app/(dashboard)/layout.tsx:17:      redirect("/login");
 src/app/login/actions.ts:5:import { getSafeRedirectPath } from "@/lib/redirect";
 src/app/login/actions.ts:22:  const redirectTo = getSafeRedirectPath(typeof formData.get("redirectTo") === "string" ? String(formData.get("redirectTo")) : null);
 src/app/login/actions.ts:48:  redirect(redirectTo);
@@ -33,7 +34,6 @@ src/app/page.tsx:23:  const redirectTo = getSafeRedirectPath(requestedRedirect);
 src/app/page.tsx:32:      redirect(redirectTo);
 src/app/page.tsx:118:            <LoginForm redirectTo={redirectTo} />
 src/app/auth/signout/route.ts:12:  return NextResponse.redirect(new URL("/login", request.url));
-src/app/(dashboard)/layout.tsx:17:      redirect("/login");
 ```
 
 ```ts
