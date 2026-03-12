@@ -9,7 +9,7 @@
   "@types/node": {
     "current": "22.19.15",
     "wanted": "22.19.15",
-    "latest": "25.4.0",
+    "latest": "25.5.0",
     "dependent": "freedomcity",
     "location": "/Users/josh/.openclaw/workspace/projects/freedomcity/node_modules/@types/node"
   },
