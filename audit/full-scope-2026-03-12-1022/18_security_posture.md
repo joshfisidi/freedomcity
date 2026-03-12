@@ -3,8 +3,6 @@
 src/lib/redirect.ts:3:export function getSafeRedirectPath(value?: string | null) {
 src/lib/supabase/server.ts:4:import { getSupabaseEnv } from "@/lib/supabase/env";
 src/lib/supabase/server.ts:7:  const env = getSupabaseEnv();
-src/lib/supabase/env.ts:4:export function hasSupabaseEnv() {
-src/lib/supabase/env.ts:8:export function getSupabaseEnv() {
 src/lib/supabase/client.ts:3:import { getSupabaseEnv } from "@/lib/supabase/env";
 src/lib/supabase/client.ts:8:  const env = getSupabaseEnv();
 src/lib/supabase/middleware.ts:4:import { getSafeRedirectPath } from "@/lib/redirect";
@@ -18,10 +16,12 @@ src/lib/supabase/middleware.ts:47:    url.searchParams.set("redirectTo", getSafe
 src/components/app-shell.tsx:10:import { hasSupabaseEnv } from "@/lib/supabase/env";
 src/components/app-shell.tsx:48:                  <Badge>{hasSupabaseEnv() ? "Live auth" : "Demo mode"}</Badge>
 src/components/app-shell.tsx:117:                {hasSupabaseEnv() ? (
-src/app/login/page.tsx:3:import { getSafeRedirectPath } from "@/lib/redirect";
-src/app/login/page.tsx:20:  const redirectTo = getSafeRedirectPath(redirectParam);
+src/lib/supabase/env.ts:4:export function hasSupabaseEnv() {
+src/lib/supabase/env.ts:8:export function getSupabaseEnv() {
 src/components/login-form.tsx:9:import { hasSupabaseEnv } from "@/lib/supabase/env";
 src/components/login-form.tsx:19:  const isSupabaseEnabled = hasSupabaseEnv();
+src/app/login/page.tsx:3:import { getSafeRedirectPath } from "@/lib/redirect";
+src/app/login/page.tsx:20:  const redirectTo = getSafeRedirectPath(redirectParam);
 src/app/login/actions.ts:5:import { getSafeRedirectPath } from "@/lib/redirect";
 src/app/login/actions.ts:7:import { hasSupabaseEnv } from "@/lib/supabase/env";
 src/app/login/actions.ts:14:  if (!hasSupabaseEnv()) {
