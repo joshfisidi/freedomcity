@@ -23,7 +23,7 @@ src/app/(dashboard)/layout.tsx:7:export default async function DashboardLayout({
 src/app/(dashboard)/programs/page.tsx:9:export default function ProgramsPage() {
 src/app/layout.tsx:10:export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
 src/app/auth/signout/route.ts:5:export async function POST(request: Request) {
-src/app/(dashboard)/app/page.tsx:10:export default function DashboardPage() {
 src/app/(dashboard)/team/page.tsx:6:export default function TeamPage() {
+src/app/(dashboard)/app/page.tsx:10:export default function DashboardPage() {
 src/app/(dashboard)/settings/page.tsx:8:export default function SettingsPage() {
 ```
