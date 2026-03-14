@@ -20,10 +20,12 @@ src/components/app-shell.tsx:48:                  <Badge>{hasSupabaseEnv() ? "Li
 src/components/app-shell.tsx:117:                {hasSupabaseEnv() ? (
 src/components/login-form.tsx:9:import { hasSupabaseEnv } from "@/lib/supabase/env";
 src/components/login-form.tsx:19:  const isSupabaseEnabled = hasSupabaseEnv();
-src/app/page.tsx:9:import { getSafeRedirectPath } from "@/lib/redirect";
-src/app/page.tsx:23:  const redirectTo = getSafeRedirectPath(requestedRedirect);
 src/app/login/page.tsx:3:import { getSafeRedirectPath } from "@/lib/redirect";
 src/app/login/page.tsx:20:  const redirectTo = getSafeRedirectPath(redirectParam);
+src/app/page.tsx:9:import { getSafeRedirectPath } from "@/lib/redirect";
+src/app/page.tsx:23:  const redirectTo = getSafeRedirectPath(requestedRedirect);
+src/app/(dashboard)/layout.tsx:5:import { hasSupabaseEnv } from "@/lib/supabase/env";
+src/app/(dashboard)/layout.tsx:10:  if (hasSupabaseEnv()) {
 src/app/login/actions.ts:5:import { getSafeRedirectPath } from "@/lib/redirect";
 src/app/login/actions.ts:7:import { hasSupabaseEnv } from "@/lib/supabase/env";
 src/app/login/actions.ts:14:  if (!hasSupabaseEnv()) {
@@ -31,6 +33,4 @@ src/app/login/actions.ts:22:  const redirectTo = getSafeRedirectPath(typeof form
 src/app/(dashboard)/settings/page.tsx:6:import { hasSupabaseEnv } from "@/lib/supabase/env";
 src/app/(dashboard)/settings/page.tsx:22:            <CardDescription>{hasSupabaseEnv() ? "Environment variables detected." : "Running in demo mode until env vars are added."}</CardDescription>
 src/app/(dashboard)/settings/page.tsx:25:            <Badge variant={hasSupabaseEnv() ? "default" : "outline"}>{hasSupabaseEnv() ? "Configured" : "Missing env vars"}</Badge>
-src/app/(dashboard)/layout.tsx:5:import { hasSupabaseEnv } from "@/lib/supabase/env";
-src/app/(dashboard)/layout.tsx:10:  if (hasSupabaseEnv()) {
 ```
