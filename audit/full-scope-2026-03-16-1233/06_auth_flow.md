@@ -16,16 +16,19 @@ src/lib/supabase/middleware.ts:1:import { createServerClient, type SetAllCookies
 src/lib/supabase/middleware.ts:5:import { getSupabaseEnv } from "@/lib/supabase/env";
 src/lib/supabase/middleware.ts:23:  const supabase = createServerClient(env.url, env.publishableKey, {
 src/lib/supabase/middleware.ts:42:  } = await supabase.auth.getUser();
-src/app/(dashboard)/layout.tsx:4:import { createClient } from "@/lib/supabase/server";
-src/app/(dashboard)/layout.tsx:5:import { hasSupabaseEnv } from "@/lib/supabase/env";
-src/app/(dashboard)/layout.tsx:11:    const supabase = await createClient();
-src/app/(dashboard)/layout.tsx:14:    } = (await supabase?.auth.getUser()) ?? { data: { user: null } };
+src/components/app-shell.tsx:10:import { hasSupabaseEnv } from "@/lib/supabase/env";
+src/components/app-shell.tsx:48:                  <Badge>{hasSupabaseEnv() ? "Live auth" : "Demo mode"}</Badge>
+src/components/app-shell.tsx:118:                  <form action="/auth/signout" method="post">
 src/app/login/actions.ts:6:import { createClient } from "@/lib/supabase/server";
 src/app/login/actions.ts:7:import { hasSupabaseEnv } from "@/lib/supabase/env";
 src/app/login/actions.ts:13:export async function signIn(_: LoginState, formData: FormData): Promise<LoginState> {
 src/app/login/actions.ts:30:  const supabase = await createClient();
 src/app/login/actions.ts:31:  if (!supabase) {
 src/app/login/actions.ts:37:  const { error } = await supabase.auth.signInWithPassword({
+src/app/(dashboard)/layout.tsx:4:import { createClient } from "@/lib/supabase/server";
+src/app/(dashboard)/layout.tsx:5:import { hasSupabaseEnv } from "@/lib/supabase/env";
+src/app/(dashboard)/layout.tsx:11:    const supabase = await createClient();
+src/app/(dashboard)/layout.tsx:14:    } = (await supabase?.auth.getUser()) ?? { data: { user: null } };
 src/app/page.tsx:11:import { createClient } from "@/lib/supabase/server";
 src/app/page.tsx:24:  const supabase = await createClient();
 src/app/page.tsx:26:  if (supabase) {
@@ -36,9 +39,6 @@ src/app/auth/signout/route.ts:3:import { createClient } from "@/lib/supabase/ser
 src/app/auth/signout/route.ts:6:  const supabase = await createClient();
 src/app/auth/signout/route.ts:8:  if (supabase) {
 src/app/auth/signout/route.ts:9:    await supabase.auth.signOut();
-src/components/app-shell.tsx:10:import { hasSupabaseEnv } from "@/lib/supabase/env";
-src/components/app-shell.tsx:48:                  <Badge>{hasSupabaseEnv() ? "Live auth" : "Demo mode"}</Badge>
-src/components/app-shell.tsx:118:                  <form action="/auth/signout" method="post">
 src/components/login-form.tsx:6:import { signIn, type LoginState } from "@/app/login/actions";
 src/components/login-form.tsx:9:import { hasSupabaseEnv } from "@/lib/supabase/env";
 src/components/login-form.tsx:18:  const [state, action, pending] = useActionState(signIn, initialState);
