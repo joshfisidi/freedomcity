@@ -1,6 +1,6 @@
 # North Star Check
 
-Timestamp: Mon Mar 16 18:38:20 EDT 2026
+Timestamp: Mon Mar 16 19:22:19 EDT 2026
 
 ## Gate Results
 
@@ -25,10 +25,10 @@ Timestamp: Mon Mar 16 18:38:20 EDT 2026
    * /Users/josh/.openclaw/workspace/projects/freedomcity/package-lock.json
    * /Users/josh/.openclaw/workspace/package-lock.json
 
-   ▲ Next.js 15.5.12
+   ▲ Next.js 15.5.13
 
    Creating an optimized production build ...
- ✓ Compiled successfully in 2.1s
+ ✓ Compiled successfully in 9.3s
    Linting and checking validity of types ...
    Collecting page data ...
    Generating static pages (0/11) ...
@@ -50,7 +50,7 @@ Route (app)                                 Size  First Load JS
 ├ ○ /settings                              140 B         102 kB
 └ ○ /team                                  140 B         102 kB
 + First Load JS shared by all             102 kB
-  ├ chunks/255-ebd51be49873d76c.js         46 kB
+  ├ chunks/255-3991756713d22f05.js         46 kB
   ├ chunks/4bd1b696-c023c6e3521b1417.js  54.2 kB
   └ other shared chunks (total)          1.96 kB
 

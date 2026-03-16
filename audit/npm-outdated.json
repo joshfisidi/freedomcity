@@ -22,8 +22,8 @@
   },
   "eslint-config-next": {
     "current": "15.5.12",
-    "wanted": "15.5.12",
-    "latest": "16.1.6",
+    "wanted": "15.5.13",
+    "latest": "16.1.7",
     "dependent": "freedomcity",
     "location": "/Users/josh/.openclaw/workspace/projects/freedomcity/node_modules/eslint-config-next"
   },
@@ -36,8 +36,8 @@
   },
   "next": {
     "current": "15.5.12",
-    "wanted": "15.5.12",
-    "latest": "16.1.6",
+    "wanted": "15.5.13",
+    "latest": "16.1.7",
     "dependent": "freedomcity",
     "location": "/Users/josh/.openclaw/workspace/projects/freedomcity/node_modules/next"
   }
