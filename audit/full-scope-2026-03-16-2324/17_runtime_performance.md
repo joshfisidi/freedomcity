@@ -11,7 +11,7 @@
 27:├ ○ /settings                              140 B         102 kB
 28:└ ○ /team                                  140 B         102 kB
 29:+ First Load JS shared by all             102 kB
-30:  ├ chunks/255-ebd51be49873d76c.js         46 kB
+30:  ├ chunks/255-3991756713d22f05.js         46 kB
 31:  ├ chunks/4bd1b696-c023c6e3521b1417.js  54.2 kB
 32:  └ other shared chunks (total)          1.96 kB
 ```
