@@ -6,13 +6,6 @@
     "dependent": "freedomcity",
     "location": "/Users/josh/.openclaw/workspace/projects/freedomcity/node_modules/@supabase/ssr"
   },
-  "@tailwindcss/postcss": {
-    "current": "4.2.1",
-    "wanted": "4.2.2",
-    "latest": "4.2.2",
-    "dependent": "freedomcity",
-    "location": "/Users/josh/.openclaw/workspace/projects/freedomcity/node_modules/@tailwindcss/postcss"
-  },
   "@types/node": {
     "current": "22.19.15",
     "wanted": "22.19.15",
@@ -30,7 +23,7 @@
   "eslint-config-next": {
     "current": "15.5.13",
     "wanted": "15.5.13",
-    "latest": "16.1.7",
+    "latest": "16.2.0",
     "dependent": "freedomcity",
     "location": "/Users/josh/.openclaw/workspace/projects/freedomcity/node_modules/eslint-config-next"
   },
@@ -44,15 +37,8 @@
   "next": {
     "current": "15.5.13",
     "wanted": "15.5.13",
-    "latest": "16.1.7",
+    "latest": "16.2.0",
     "dependent": "freedomcity",
     "location": "/Users/josh/.openclaw/workspace/projects/freedomcity/node_modules/next"
-  },
-  "tailwindcss": {
-    "current": "4.2.1",
-    "wanted": "4.2.2",
-    "latest": "4.2.2",
-    "dependent": "freedomcity",
-    "location": "/Users/josh/.openclaw/workspace/projects/freedomcity/node_modules/tailwindcss"
   }
 }
