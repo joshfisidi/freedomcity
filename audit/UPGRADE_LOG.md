@@ -1,6 +1,6 @@
 # Upgrade Log
 
-Timestamp: Thu Mar 19 10:22:25 EDT 2026
+Timestamp: Thu Mar 19 11:54:04 EDT 2026
 
 ## Knowledge + Programmatic Upgrade Stage
 
@@ -9,7 +9,7 @@ Timestamp: Thu Mar 19 10:22:25 EDT 2026
 - npm outdated: found candidates (captured in audit/npm-outdated.json)
 - applying npm update
 
-changed 2 packages, and audited 347 packages in 10s
+changed 6 packages, and audited 347 packages in 10s
 
 140 packages are looking for funding
   run `npm fund` for details

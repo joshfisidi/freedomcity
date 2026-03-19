@@ -7,9 +7,6 @@ src/lib/redirect.ts:10:  return redirectTo;
 src/lib/supabase/middleware.ts:4:import { getSafeRedirectPath } from "@/lib/redirect";
 src/lib/supabase/middleware.ts:47:    url.searchParams.set("redirectTo", getSafeRedirectPath(request.nextUrl.pathname));
 src/lib/supabase/middleware.ts:48:    return NextResponse.redirect(url);
-src/components/login-form.tsx:14:  redirectTo: string;
-src/components/login-form.tsx:17:export function LoginForm({ redirectTo }: LoginFormProps) {
-src/components/login-form.tsx:23:      <input name="redirectTo" type="hidden" value={redirectTo} />
 src/app/login/page.tsx:3:import { getSafeRedirectPath } from "@/lib/redirect";
 src/app/login/page.tsx:6:  searchParams: Promise<{
 src/app/login/page.tsx:7:    redirectTo?: string | string[];
@@ -23,6 +20,9 @@ src/app/login/page.tsx:26:  redirect("/");
 src/app/login/actions.ts:5:import { getSafeRedirectPath } from "@/lib/redirect";
 src/app/login/actions.ts:22:  const redirectTo = getSafeRedirectPath(typeof formData.get("redirectTo") === "string" ? String(formData.get("redirectTo")) : null);
 src/app/login/actions.ts:48:  redirect(redirectTo);
+src/components/login-form.tsx:14:  redirectTo: string;
+src/components/login-form.tsx:17:export function LoginForm({ redirectTo }: LoginFormProps) {
+src/components/login-form.tsx:23:      <input name="redirectTo" type="hidden" value={redirectTo} />
 src/app/page.tsx:9:import { getSafeRedirectPath } from "@/lib/redirect";
 src/app/page.tsx:15:  searchParams: Promise<{
 src/app/page.tsx:16:    redirectTo?: string | string[];
