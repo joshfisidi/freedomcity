@@ -7,6 +7,9 @@ src/lib/supabase/env.ts:4:export function hasSupabaseEnv() {
 src/lib/supabase/env.ts:8:export function getSupabaseEnv() {
 src/lib/supabase/client.ts:3:import { getSupabaseEnv } from "@/lib/supabase/env";
 src/lib/supabase/client.ts:8:  const env = getSupabaseEnv();
+src/components/app-shell.tsx:10:import { hasSupabaseEnv } from "@/lib/supabase/env";
+src/components/app-shell.tsx:48:                  <Badge>{hasSupabaseEnv() ? "Live auth" : "Demo mode"}</Badge>
+src/components/app-shell.tsx:117:                {hasSupabaseEnv() ? (
 src/lib/supabase/middleware.ts:4:import { getSafeRedirectPath } from "@/lib/redirect";
 src/lib/supabase/middleware.ts:5:import { getSupabaseEnv } from "@/lib/supabase/env";
 src/lib/supabase/middleware.ts:7:const protectedPrefixes = ["/app", "/programs", "/board", "/team", "/settings"];
@@ -15,9 +18,6 @@ src/lib/supabase/middleware.ts:10:  return protectedPrefixes.some((prefix) => pa
 src/lib/supabase/middleware.ts:18:  const env = getSupabaseEnv();
 src/lib/supabase/middleware.ts:44:  if (!user && isProtectedPath(request.nextUrl.pathname)) {
 src/lib/supabase/middleware.ts:47:    url.searchParams.set("redirectTo", getSafeRedirectPath(request.nextUrl.pathname));
-src/components/app-shell.tsx:10:import { hasSupabaseEnv } from "@/lib/supabase/env";
-src/components/app-shell.tsx:48:                  <Badge>{hasSupabaseEnv() ? "Live auth" : "Demo mode"}</Badge>
-src/components/app-shell.tsx:117:                {hasSupabaseEnv() ? (
 src/components/login-form.tsx:9:import { hasSupabaseEnv } from "@/lib/supabase/env";
 src/components/login-form.tsx:19:  const isSupabaseEnabled = hasSupabaseEnv();
 src/app/login/page.tsx:3:import { getSafeRedirectPath } from "@/lib/redirect";
