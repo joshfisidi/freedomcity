@@ -6,13 +6,6 @@
     "dependent": "freedomcity",
     "location": "/Users/josh/.openclaw/workspace/projects/freedomcity/node_modules/@supabase/ssr"
   },
-  "@supabase/supabase-js": {
-    "current": "2.99.2",
-    "wanted": "2.99.3",
-    "latest": "2.99.3",
-    "dependent": "freedomcity",
-    "location": "/Users/josh/.openclaw/workspace/projects/freedomcity/node_modules/@supabase/supabase-js"
-  },
   "@types/node": {
     "current": "22.19.15",
     "wanted": "22.19.15",
