@@ -30,6 +30,7 @@ src/app/login/actions.ts:13:export async function signIn(_: LoginState, formData
 src/app/login/actions.ts:30:  const supabase = await createClient();
 src/app/login/actions.ts:31:  if (!supabase) {
 src/app/login/actions.ts:37:  const { error } = await supabase.auth.signInWithPassword({
+src/components/ui/card.tsx:2:import { cva, type VariantProps } from "class-variance-authority";
 src/app/page.tsx:11:import { createClient } from "@/lib/supabase/server";
 src/app/page.tsx:24:  const supabase = await createClient();
 src/app/page.tsx:26:  if (supabase) {
@@ -40,7 +41,6 @@ src/app/(dashboard)/layout.tsx:5:import { hasSupabaseEnv } from "@/lib/supabase/
 src/app/(dashboard)/layout.tsx:11:    const supabase = await createClient();
 src/app/(dashboard)/layout.tsx:14:    } = (await supabase?.auth.getUser()) ?? { data: { user: null } };
 src/app/(dashboard)/settings/page.tsx:6:import { hasSupabaseEnv } from "@/lib/supabase/env";
-src/components/ui/card.tsx:2:import { cva, type VariantProps } from "class-variance-authority";
 src/app/auth/signout/route.ts:3:import { createClient } from "@/lib/supabase/server";
 src/app/auth/signout/route.ts:6:  const supabase = await createClient();
 src/app/auth/signout/route.ts:8:  if (supabase) {
