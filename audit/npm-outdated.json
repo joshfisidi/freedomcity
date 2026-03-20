@@ -16,7 +16,7 @@
   "eslint": {
     "current": "9.39.4",
     "wanted": "9.39.4",
-    "latest": "10.0.3",
+    "latest": "10.1.0",
     "dependent": "freedomcity",
     "location": "/Users/josh/.openclaw/workspace/projects/freedomcity/node_modules/eslint"
   },
