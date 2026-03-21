@@ -1,6 +1,6 @@
 # North Star Check
 
-Timestamp: Sat Mar 21 14:24:42 EDT 2026
+Timestamp: Sat Mar 21 16:03:42 EDT 2026
 
 ## Gate Results
 
@@ -28,7 +28,7 @@ Timestamp: Sat Mar 21 14:24:42 EDT 2026
    ▲ Next.js 15.5.14
 
    Creating an optimized production build ...
- ✓ Compiled successfully in 2.9s
+ ✓ Compiled successfully in 1714ms
    Linting and checking validity of types ...
    Collecting page data ...
    Generating static pages (0/11) ...
@@ -59,9 +59,9 @@ Route (app)                                 Size  First Load JS
 ƒ  (Dynamic)  server-rendered on demand
 
 - ✅ build passed
-src/lib/redirect.ts:3:export function getSafeRedirectPath(value?: string | null) {
 src/lib/supabase/middleware.ts:4:import { getSafeRedirectPath } from "@/lib/redirect";
 src/lib/supabase/middleware.ts:7:const protectedPrefixes = ["/app", "/programs", "/board", "/team", "/settings"];
 src/lib/supabase/middleware.ts:10:  return protectedPrefixes.some((prefix) => pathname.startsWith(prefix));
 src/lib/supabase/middleware.ts:47:    url.searchParams.set("redirectTo", getSafeRedirectPath(request.nextUrl.pathname));
+src/lib/redirect.ts:3:export function getSafeRedirectPath(value?: string | null) {
 - ✅ auth/redirect safety signals present
